@@ -6,7 +6,29 @@ $cityCodes = [
     "2" => "455018",
     "3" => "8423215",
     "4" => "666282",
-    "5" => "1506970",
+    "5" => "14242724",
+    "6" => "7387058",
+    "7" => "1541164",
+    "8" => "296037",
+    "9" => "190203",
+    "10"=> "1627249",
+    "11"=> "548766",
+    "12"=> "678443",
+    "13"=> "6495421",
+    "14"=> "6845073",
+    "15"=> "6439033",
+    "16"=> "6825394",
+    "17"=> "6502610",
+    "18"=> "1965629",
+    "19"=> "1315551",
+    "20"=> "1783442",
+    "21"=> "279029",
+    "22"=> "279029",
+    "23"=> "2098300",
+    "24"=> "817336",
+    "25"=> "676922",
+    "26"=> "3369701",
+
 ];
 
 $service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[rand(0,5)].'/?key=HackTripAdvisor-ade29ff43aed';
@@ -72,4 +94,10 @@ $fakeCity3 = $fakeCities3[rand (0 ,11)];
 
 echo('{ "fakeCity1: "'.$fakeCity1.'", fakeCity2: "'.$fakeCity2.'", fakeCity3: "'.$fakeCity3.'", realCity: "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", comment: "'.$json['reviews'][0]['text'].'",}');
 
+// echo($fakeCity1);
+// echo($fakeCity2);
+// echo($fakeCity3);
+
+//echo($json['address_obj']['city'].', '.$json['address_obj']['country']);
+//echo($json['reviews'][0]['text']); //these are the general array indicies for getting comments from the response
 ?>
