@@ -1,5 +1,7 @@
 <?php
 
+putenv('HOME=/tatc');
+
 $cityCodes = [
     "0" => "6387666",
     "1" => "455018",
