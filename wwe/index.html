@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Trippy - The TripAdvisor Game You've Been Waiting For</title>
-		<meta name="description" content="Trippy - The TripAdvisor Game You've Been Waiting For">
-		<meta name="author" content="Trippy LLC">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Trippy - The TripAdvisor Game You've Been Waiting For</title>
+    <meta name="description" content="Trippy - The TripAdvisor Game You've Been Waiting For">
+    <meta name="author" content="Trippy LLC">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script type="text/javascript" src="js/script.js"></script>
-		<script src='js/liftOff.js'></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src='js/liftOff.js'></script>
 
-		<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet"> -->
-		<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-	</head>
-	<body>
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet"> -->
 
-	<div class="preloader">
+</head>
+
+<body>
+
+    <div class="preloader">
         <div class="logo-container">
             <img src="img/logo.png">
         </div>
@@ -36,51 +38,51 @@
     </div>
 
 
-		<script> 
-		function startgame() {
-			$("#map").css("display", "none");
-			$("#play_game").css("display", "none");
-			$("#game_container").css("display", "initial");
+    <script>
+        function startgame() {
+            $("#map").css("display", "none");
+            $("#play_game").css("display", "none");
+            $("#game_container").css("display", "initial");
 
-		}
-		</script>
-    		<div id="map_overlay"> 
-        		<button type="button" id="play_game" onclick="startgame()">Play Game</button>
-        	</div>
-            <div id="map"></div>
-        <script>
-function initMap(){var e,o=new google.maps.Geocoder,s=new google.maps.StyledMapType([{stylers:[{color:"#B2B9FF"},{visibility:"simplified"},{gamma:0},{weight:.2}]},{elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{color:"#FFE3D8"}]}],{name:"Trippy"}),t="custom_style";e=new google.maps.Map(document.getElementById("map"),{zoom:4,center:{lat:0,lng:0},disableDefaultUI:!0,mapTypeControlOptions:{mapTypeIds:[google.maps.MapTypeId.ROADMAP,t]}}),e.mapTypes.set(t,s),e.setMapTypeId(t),geocodeAddress(o,e)}function geocodeAddress(e,o){var s="St. Louis, MO";e.geocode({address:s},function(e,s){if(s===google.maps.GeocoderStatus.OK){o.setCenter(e[0].geometry.location);{new google.maps.Marker({map:o,position:e[0].geometry.location})}}else alert("Geocode was not successful for the following reason: "+s)})}
-            </script>
-        <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=geometry&callback=initMap"
-            async defer></script>
+        }
+    </script>
+    <div id="map_overlay">
+        <button type="button" id="play_game" onclick="startgame()">Play Game</button>
+    </div>
+    <div id="map"></div>
+    <script>
+		function initMap(){var e,o=new google.maps.Geocoder,s=new google.maps.StyledMapType([{stylers:[{color:"#B2B9FF"},{visibility:"simplified"},{gamma:0},{weight:.2}]},{elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{color:"#FFE3D8"}]}],{name:"Trippy"}),t="custom_style";e=new google.maps.Map(document.getElementById("map"),{zoom:4,center:{lat:0,lng:0},disableDefaultUI:!0,mapTypeControlOptions:{mapTypeIds:[google.maps.MapTypeId.ROADMAP,t]}}),e.mapTypes.set(t,s),e.setMapTypeId(t),geocodeAddress(o,e)}function geocodeAddress(e,o){var s="St. Louis, MO";e.geocode({address:s},function(e,s){s===google.maps.GeocoderStatus.OK?(o.setCenter(e[0].geometry.location),new google.maps.Marker({map:o,position:e[0].geometry.location})):alert("Geocode was not successful for the following reason: "+s)})}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=geometry&callback=initMap" async defer></script>
 
-	<div id="game_container">
-		<div id="choice_container">
-			<div id="question_container">
-				<div id="question_text_container">
+    <div id="game_container">
+        <div id="choice_container">
+            <div id="question_container">
+                <div id="question_text_container">
 
-				<h1 id="question_text"></h1>
+                    <h1 id="question_text"></h1>
 
-				</div>
-			</div>
+                </div>
+            </div>
 
-			<div class="choices" id="question_choice">
-			<h1 id="question_text_mobile"></h1>
-			</div>
+            <div class="choices" id="question_choice">
+                <h1 id="question_text_mobile"></h1>
+            </div>
 
-			<div class="choices" id="choice_1">
-			</div>
+            <div class="choices" id="choice_1">
+            </div>
 
-			<div class="choices" id="choice_2">
-			</div>
+            <div class="choices" id="choice_2">
+            </div>
 
-			<div class="choices" id="choice_3">
-			</div>
+            <div class="choices" id="choice_3">
+            </div>
 
-			<div class="choices" id="choice_4">
-			</div>
-		</div>
-	</div>
+            <div class="choices" id="choice_4">
+            </div>
+        </div>
+    </div>
 
-	</body>
+</body>
+
 </html>

@@ -255,8 +255,8 @@ html, body {
 	z-index: 10;
     margin-top: 70vh;
     margin-left: 80vw;
-    border: 2px solid #452E39;
-    background-color: #BC6B62;
+    border: 2px solid #E89A99;
+    background-color: #FFF6BA;
     border-radius: 5px;
     padding: 25px;
     color: #333;
@@ -264,7 +264,7 @@ html, body {
     font-size: 25px;
 }
 #play_game:hover {
-	background-color: #7B4947;
+	background-color: #E89A99;
 }
 
 @media (max-width: 769px) {
