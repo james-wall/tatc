@@ -9,16 +9,12 @@ $( document ).ready(function() {
 	}
 
 	$.get( "/tatc/wwe/js/callAPI.php", function(json) {
-	 alert( "Load was performed." );
-	 //alert( "Data Loaded: " + json);
 	 var jsonObj = JSON.parse(json);
-	 console.log(jsonObj);
-	 console.log(jsonObj.fakeCity1);
-	 console.log(jsonObj.realCity);
-	 $(jsonObj.fakeCity1).appendTo("#choice_1");gi
-	 $(jsonObj.fakeCity2).appendTo("#choice_2");
-	 $(jsonObj.fakeCity3).appendTo("#choice_3");
-	 $(jsonObj.realCity).appendTo("#choice_4");
+	 $("<h1>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
+	 $("<h1>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
+	 $("<h1>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
+	 $("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_4");
+	 updateText(jsonObj.comment);
 	})
 	.fail(function() {
 		alert( "error" );
@@ -37,7 +33,7 @@ $( document ).ready(function() {
 		console.log("You chose choice 4.");
 	});
 
-	updateText("Despite staying on the top floor, there was no way you could see the Gateway Arch. Needless to say there were quite a few buildings in the way. Great serive though.");
+	//updateText("Despite staying on the top floor, there was no way you could see the Gateway Arch. Needless to say there were quite a few buildings in the way. Great serive though.");
 
 
 });
