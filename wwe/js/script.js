@@ -40,8 +40,14 @@ $( document ).ready(function() {
 			$("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_4");
 		}
 		updateText(jsonObj.comment);
-	}, "json").fail(function() {
-		alert( "error" );
+	}, "json").fail(function(jqXHR, textStatus, errorThrown) {
+		console.log(jqXHR);
+		console.log(textStatus);
+		console.log(errorThrown);
+		alert(jqXHR);
+		alert(textStatus);
+		alert(errorThrown);
+		//alert( "error" );
 	});
 
 	$(document).delegate("#choice_1", "click", function() {
