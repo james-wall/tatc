@@ -76,15 +76,4 @@ echo($fakeCity3);
 
 echo($json['address_obj']['city'].', '.$json['address_obj']['country']);
 echo($json['reviews'][0]['text']); //these are the general array indicies for getting comments from the response
-
-// print_r($fakeCity1);
-// print_r($fakeCity2);
-// print_r($fakeCity3);
-
-//print_r($json['address_obj']['city'].', '.$json['address_obj']['country']);
-//print_r($json['reviews'][0]['text']); //these are the general array indicies for getting comments from the response
-//print_r($json);
-//print_r($json['description']); //temp until we finalize codes
-
-//curl_close($curl);
 ?>
