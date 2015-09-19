@@ -17,7 +17,9 @@ if ($curl_response === false) {
     die('error occured during curl exec. Additional info: ' . var_export($info));
 }
 
-echo($curl_response);
+//echo($curl_response);
+$json = json_decode($curl_response, true);
+print_r($json);
 curl_close($curl);
 // $decoded = json_decode($curl_response);
 // if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
