@@ -107,34 +107,6 @@ html, body {
 	color: black;
 }
 
-@media (max-width: 769px) {
-	.choices{
-		width: 100vw;
-		height: 15vh;
-	}
-	#question_container {
-		display: none;
-	}
-	#question_choice {
-		display: inline-block;
-		height: 40vh;
-		background-color: rgba(234, 178, 153, 1);
-	}
-	#question_text_mobile {
-		font-size: 20px;
-		line-height: 125%;
-		margin-right: 4%;
-	}
-	.choices h1 {
-		color: white;
-		margin-left: 4%;
-		margin-top: 4%;
-	}
-	#choice_1 h1, #choice_2 h1, #choice_3 h1, #choice_4 h1 {
-		margin-top: 7.5%;
-		margin-left: 5%;
-	}
-}
 .preloader{
   background: #EAB299;
   height:100%;
@@ -293,4 +265,37 @@ html, body {
 }
 #play_game:hover {
 	background-color: #7B4947;
+}
+
+@media (max-width: 769px) {
+	.choices{
+		width: 100vw;
+		height: 15vh;
+	}
+	#question_container {
+		display: none;
+	}
+	#question_choice {
+		display: inline-block;
+		height: 40vh;
+		background-color: rgba(234, 178, 153, 1);
+	}
+	#question_text_mobile {
+		font-size: 20px;
+		line-height: 125%;
+		margin-right: 4%;
+	}
+	.choices h1 {
+		color: white;
+		margin-left: 4%;
+		margin-top: 4%;
+	}
+	#choice_1 h1, #choice_2 h1, #choice_3 h1, #choice_4 h1 {
+		margin-top: 7.5%;
+		margin-left: 5%;
+	}
+
+	#play_game {
+		margin-left: 5%;
+	}
 }
