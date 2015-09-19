@@ -7,4 +7,4 @@ Great location and highly recommended as a place to meet people, connect with th
 
 Spend 4 days in the Traders hotel in Yangon and I must commend the team for ensuring a great stay. The service was excellent and better than I have experienced in many other 5 star hotels in Asia. Apart from the great service, their unique selling point is their location and of course they have got the best WIFI in town (a significant advantage with the limited internet access available in Yangon).
 
-##452E39 | #7B4947 | #BC6B62 | #DD8D70 | #EAB299
+##452E39 255 227 216| #7B4947 232 154 153| #BC6B62 178 185 255| #DD8D70 169 232 150| #EAB299 255 246 186
