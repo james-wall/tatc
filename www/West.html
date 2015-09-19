@@ -19,82 +19,79 @@
  specific language governing permissions and limitations
  under the License.
  -->
-<!--<html>
- <head>
- <link rel="stylesheet" type="text/css" href="css/index.css" />
- <title>Hello World</title>
- </head>
- <body>
- <h1>hello world</h1>
- </body>
- </html>-->
-<!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-            <meta charset="utf-8">
-                <title>Polygon arrays</title>
-                <style>
-                    html, body {
-                        height: 100%;
-                        margin: 0;
-                        padding: 0;
-                    }
-                #map {
-                    height: 100%;
-                }
-                </style>
-                </head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>West</title>
+        
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        #map {
+            height: 95%;
+            width: 95%;
+        }
+        </style>
+    </head>
     <body>
         <div id="map"></div>
+        <a href="world.html">
+            <button type="button" onclick="toggleEdit(this);">Next</button>
+        </a>
+        <!--Map-->
         <script>
             function initMap() {
-                //alert("hello");
-                var map = new google.maps.Map(document.getElementById('map'), {
-                                              center: {lat: 46.423, lng: -100.3248},
-                                              zoom: 1,
-                                              });
-                                              
+                var customMapType = new google.maps.StyledMapType([
+                                                                   {
+                                                                   stylers: [
+                                                                             {hue: '#EAB299'},
+                                                                             {visibility: 'simplified'},
+                                                                             {gamma: 0.3},
+                                                                             {weight: 0.20}
+                                                                             ]
+                                                                   },
+                                                                   {
+                                                                   elementType: 'labels',
+                                                                   stylers: [{visibility: 'off'}]
+                                                                   },
+                                                                   {
+                                                                   featureType: 'water',
+                                                                   stylers: [{color: '#452E39'}]
+                                                                   }
+                                                                   ], {
+                                                                  name: 'Trippy'
+                                                                  });
+                                                                  var customMapTypeId = 'custom_style';
+                                                                  
+                                                                  var map = new google.maps.Map(document.getElementById('map'), {
+                                                                                                zoom: 2,
+                                                                                                center: {lat: 9, lng: -80},
+                                                                                                disableDefaultUI: true,
+                                                                                                mapTypeControlOptions: {
+                                                                                                mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
+                                                                                                }
+                                                                                                });
+                                                                                                
+                                                                                                map.mapTypes.set(customMapTypeId, customMapType);
+                                                                                                map.setMapTypeId(customMapTypeId);
             }
         
             </script>
         <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=geometry&callback=initMap"
             async defer></script>
+        <!--Map-->
         
-        <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
-        <script type="text/javascript" charset="utf-8">
-            
-            // Wait for Cordova to load
-            //
-            document.addEventListener("deviceready", onDeviceReady, false);
-            
-            // Cordova is ready
-            //
-            function onDeviceReady() {
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            }
         
-        // onSuccess Geolocation
-        //
-        function onSuccess(position) {
-            var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-            'Longitude: '          + position.coords.longitude             + '<br />' +
-            'Altitude: '           + position.coords.altitude              + '<br />' +
-            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-            'Heading: '            + position.coords.heading               + '<br />' +
-            'Speed: '              + position.coords.speed                 + '<br />' +
-            'Timestamp: '          +                                   position.timestamp          + '<br />';
-        }
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
         
-        // onError Callback receives a PositionError object
-        //
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
-        }
-        
-            </script>
     </body>
 </html>
