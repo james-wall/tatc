@@ -70,10 +70,12 @@ $fakeCity1 = $fakeCities[rand (0 ,11)];
 $fakeCity2 = $fakeCities2[rand (0 ,11)];
 $fakeCity3 = $fakeCities3[rand (0 ,11)];
 
-echo($fakeCity1);
-echo($fakeCity2);
-echo($fakeCity3);
+echo('{ "fakeCity1: "'.$fakeCity1.'", fakeCity2: "'.$fakeCity2.'", fakeCity3: "'.$fakeCity3.'", realCity: "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", comment: "'.$json['reviews'][0]['text'].'",}');
 
-echo($json['address_obj']['city'].', '.$json['address_obj']['country']);
-echo($json['reviews'][0]['text']); //these are the general array indicies for getting comments from the response
+// echo($fakeCity1);
+// echo($fakeCity2);
+// echo($fakeCity3);
+
+//echo($json['address_obj']['city'].', '.$json['address_obj']['country']);
+//echo($json['reviews'][0]['text']); //these are the general array indicies for getting comments from the response
 ?>
