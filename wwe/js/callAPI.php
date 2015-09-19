@@ -2,36 +2,30 @@
 
 $cityCodes = [
     "0" => "6387666",
-    "1" => "5121744",
-    "2" => "455018",
-    "3" => "8423215",
-    "4" => "666282",
-    "5" => "14242724",
-    "6" => "7387058",
-    "7" => "1541164",
-    "8" => "296037",
-    "9" => "190203",
-    "10"=> "1627249",
-    "11"=> "548766",
-    "12"=> "678443",
-    "13"=> "6495421",
-    "14"=> "6845073",
-    "15"=> "6439033",
-    "16"=> "6825394",
-    "17"=> "6502610",
-    "18"=> "1965629",
-    "19"=> "1315551",
-    "20"=> "1783442",
-    "21"=> "279029",
-    "22"=> "279029",
-    "23"=> "2098300",
-    "24"=> "817336",
-    "25"=> "676922",
-    "26"=> "3369701",
+    "1" => "455018",
+    "2" => "666282",
+    "3" => "1541164",
+    "4" => "296037",
+    "5" => "190203",
+    "6"=> "1627249",
+    "7"=> "678443",
+    "8"=> "6495421",
+    "9"=> "6845073",
+    "10"=> "6439033",
+    "11"=> "6825394",
+    "12"=> "6502610",
+    "13"=> "1965629",
+    "14"=> "279029",
+    "15"=> "2098300",
+    "16"=> "817336",
+    "17"=> "676922",
+    "18"=> "3369701",
 
 ];
 
-$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[rand(0,26)].'/?key=HackTripAdvisor-ade29ff43aed';
+$rand = rand(0,18);
+
+$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=HackTripAdvisor-ade29ff43aed';
 
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -92,6 +86,8 @@ $fakeCity1 = $fakeCities[rand (0 ,11)];
 $fakeCity2 = $fakeCities2[rand (0 ,11)];
 $fakeCity3 = $fakeCities3[rand (0 ,11)];
 
-echo('{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'"}');
-
+$str = '{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'"}';
+//$utf8str = iconv(mb_detect_encoding($str, mb_detect_order(), true), "UTF-8", $str);
+//echo($utf8str);
+echo($str);
 ?>

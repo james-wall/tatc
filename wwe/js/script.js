@@ -1,23 +1,53 @@
 $( document ).ready(function() {
 
 	function updateText(text) {
-		if (text.length > 150) {
+		/*if (text.length > 150) {
 			text = text.slice(0, 150) + "...";
-		}
+		}*/
 		$("#question_text").text(text);
 		$("#question_text_mobile").text(text);
 	}
 
-	$.get( "/tatc/wwe/js/callAPI.php", function(json) {
-	 var jsonObj = JSON.parse(json);
-	 $("<h1>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
-	 $("<h1>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
-	 $("<h1>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
-	 $("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_4");
-	 updateText(jsonObj.comment);
-	})
-	.fail(function() {
-		alert( "error" );
+	$.get( "/tatc/wwe/js/callAPI.php", function(jsonObj) {
+
+		//var jsonObj = JSON.parse(json);
+		var randNum = Math.random();
+
+		console.log(randNum);
+
+		if(randNum < .25){
+			$("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_1");
+			$("<h1>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
+			$("<h1>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
+			$("<h1>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_4");
+		}
+		else if(randNum >= .25 && randNum < .5){
+			$("<h1>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
+			$("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_2");
+			$("<h1>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
+			$("<h1>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_4");
+		}
+		else if(randNum >= .5 && randNum < .75){
+			$("<h1>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
+			$("<h1>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
+			$("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_3");
+			$("<h1>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_4");
+		}
+		else{
+			$("<h1>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
+			$("<h1>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
+			$("<h1>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
+			$("<h1>" + jsonObj.realCity + "</h1>").appendTo("#choice_4");
+		}
+		updateText(jsonObj.comment);
+	}, "json").fail(function(jqXHR, textStatus, errorThrown) {
+		console.log(jqXHR);
+		console.log(textStatus);
+		console.log(errorThrown);
+		alert(jqXHR);
+		alert(textStatus);
+		alert(errorThrown);
+		//alert( "error" );
 	});
 
 	$(document).delegate("#choice_1", "click", function() {
