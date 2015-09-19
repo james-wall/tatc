@@ -1,36 +1,23 @@
-// Method: POST, PUT, GET etc
-// Data: array("param" => "value") ==> index.php?param=value
+<h1>TEST I'm HERE</h1>
 
-function CallAPI($method, $url, $data = false)
-{
-    $curl = curl_init();
 
-    switch ($method)
-    {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
 
-            if ($data)
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            break;
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-        default:
-            if ($data)
-                $url = sprintf("%s?%s", $url, http_build_query($data));
-    }
-
-    // Optional Authentication:
-    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-    $result = curl_exec($curl);
-
+<?php
+//next example will recieve all messages for specific conversation
+$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/89575?key=HackTripAdvisor-ade29ff43aed';
+$curl = curl_init($service_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$curl_response = curl_exec($curl);
+if ($curl_response === false) {
+    $info = curl_getinfo($curl);
     curl_close($curl);
-
-    return $result;
+    die('error occured during curl exec. Additioanl info: ' . var_export($info));
 }
+curl_close($curl);
+$decoded = json_decode($curl_response);
+if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
+    die('error occured: ' . $decoded->response->errormessage);
+}
+echo 'response ok!';
+var_export($decoded->response);
+?>
