@@ -17,15 +17,7 @@ if ($curl_response === false) {
     die('error occured during curl exec. Additional info: ' . var_export($info));
 }
 
-//echo($curl_response);
 $json = json_decode($curl_response, true);
-print_r($json);
+print_r($json['reviews'][1]['text']); //these are the general array indicies for getting comments from the response
 curl_close($curl);
-// $decoded = json_decode($curl_response);
-// if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
-//     die('error occured: ' . $decoded->response->errormessage);
-// }
-// echo 'response ok!';
-// echo($decoded->response->status);
-//var_export($decoded->response);
 ?>
