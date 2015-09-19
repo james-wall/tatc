@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+<!--
+
+ -->
+=======
+>>>>>>> 58032eaec428f120c39915cd83ab36e0b6e6ccd2
 <html>
     <head>
         <meta charset="utf-8" />
@@ -22,7 +28,76 @@
     <body>
         <div id="map"></div>
         <script>
+<<<<<<< HEAD
+            function initMap() {
+                var map;
+                var geocoder = new google.maps.Geocoder();
+                var customMapType = new google.maps.StyledMapType([
+                                                                   {
+                                                                   stylers: [
+                                                                             //{color: '#FFD97B'},
+                                                                             {hue: '#9BB5FF'},
+                                                                             {visibility: 'simplified'},
+                                                                             {gamma: .9},
+                                                                             {weight: 0.20}
+                                                                             ]
+                                                                   },
+                                                                   {
+                                                                   elementType: 'labels',
+                                                                   stylers: [{visibility: 'off'}]
+                                                                   },
+                                                                   {
+                                                                   featureType: 'water',
+                                                                   //stylers: [{color: '#CFA1FF'}]
+                                                                   stylers: [{hue: '#73C76A'}]
+                                                                   }
+                                                                   ], {
+                                                                  name: 'Trippy'
+                                                                  });
+                                                                  var customMapTypeId = 'custom_style';
+                                                                  
+                                                                map = new google.maps.Map(document.getElementById('map'), {
+                                                                                                zoom: 2,
+                                                                                                center: {lat: 0, lng: 0},
+                                                                                                disableDefaultUI: true,
+                                                                                                mapTypeControlOptions: {
+                                                                                                mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
+                                                                                                }
+                                                                                                });
+                                                                                                
+                                                                                                map.mapTypes.set(customMapTypeId, customMapType);
+                                                                                                map.setMapTypeId(customMapTypeId);
+                                                                                            
+                    geocodeAddress(geocoder, map);
+            }
+        
+        /*
+         red : F88985
+         green : 73C76A
+         purple : CFA1FF
+         blue : 9BB5FF
+         yello : FFD97B
+         
+         */
+        
+        function geocodeAddress(geocoder, resultsMap) {
+            var address = "St. Louis, MO";//here
+            geocoder.geocode({'address': address}, function(results, status) {
+                             if (status === google.maps.GeocoderStatus.OK) {
+                             resultsMap.setCenter(results[0].geometry.location);
+                             var marker = new google.maps.Marker({
+                                                                 map: resultsMap,
+                                                                 position: results[0].geometry.location
+                                                                 });
+                             } else {
+                             alert('Geocode was not successful for the following reason: ' + status);
+                             }
+                             });
+        }
+        
+=======
 function initMap(){var e,o=new google.maps.Geocoder,s=new google.maps.StyledMapType([{stylers:[{color:"#DD8D70"},{visibility:"simplified"},{gamma:0},{weight:.2}]},{elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{color:"#FFFFFF"}]}],{name:"Trippy"}),t="custom_style";e=new google.maps.Map(document.getElementById("map"),{zoom:2,center:{lat:0,lng:0},disableDefaultUI:!0,mapTypeControlOptions:{mapTypeIds:[google.maps.MapTypeId.ROADMAP,t]}}),e.mapTypes.set(t,s),e.setMapTypeId(t),geocodeAddress(o,e)}function geocodeAddress(e,o){var s="St. Louis, MO";e.geocode({address:s},function(e,s){if(s===google.maps.GeocoderStatus.OK){o.setCenter(e[0].geometry.location);{new google.maps.Marker({map:o,position:e[0].geometry.location})}}else alert("Geocode was not successful for the following reason: "+s)})}
+>>>>>>> 58032eaec428f120c39915cd83ab36e0b6e6ccd2
             </script>
         <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=geometry&callback=initMap"
             async defer></script>
