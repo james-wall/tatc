@@ -27,8 +27,7 @@ $cityCodes = [
 
 $rand = rand(0,18);
 
-//$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=HackTripAdvisor-ade29ff43aed';
-$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/3369701/?key=HackTripAdvisor-ade29ff43aed';
+$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=HackTripAdvisor-ade29ff43aed';
 
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
