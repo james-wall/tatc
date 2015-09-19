@@ -15,7 +15,7 @@ $( document ).ready(function() {
 	 console.log(jsonObj);
 	 console.log(jsonObj.fakeCity1);
 	 console.log(jsonObj.realCity);
-	 $(jsonObj.fakeCity1).appendTo("#choice_1");
+	 $(jsonObj.fakeCity1).appendTo("#choice_1");gi
 	 $(jsonObj.fakeCity2).appendTo("#choice_2");
 	 $(jsonObj.fakeCity3).appendTo("#choice_3");
 	 $(jsonObj.realCity).appendTo("#choice_4");
