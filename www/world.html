@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <!--
- Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
- 
- Licensed to the Apache Software Foundation (ASF) under one
- or more contributor license agreements.  See the NOTICE file
- distributed with this work for additional information
- regarding copyright ownership.  The ASF licenses this file
- to you under the Apache License, Version 2.0 (the
- "License"); you may not use this file except in compliance
- with the License.  You may obtain a copy of the License at
- 
- http://www.apache.org/licenses/LICENSE-2.0
- 
- Unless required by applicable law or agreed to in writing,
- software distributed under the License is distributed on an
- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- KIND, either express or implied.  See the License for the
- specific language governing permissions and limitations
- under the License.
+
  -->
 <html>
     <head>
@@ -53,9 +36,10 @@
                 var customMapType = new google.maps.StyledMapType([
                                                                    {
                                                                    stylers: [
-                                                                             {color: '#DD8D70'},
+                                                                             //{color: '#FFD97B'},
+                                                                             {hue: '#9BB5FF'},
                                                                              {visibility: 'simplified'},
-                                                                             {gamma: 0},
+                                                                             {gamma: .9},
                                                                              {weight: 0.20}
                                                                              ]
                                                                    },
@@ -65,7 +49,8 @@
                                                                    },
                                                                    {
                                                                    featureType: 'water',
-                                                                   stylers: [{color: '#FFFFFF'}]
+                                                                   //stylers: [{color: '#CFA1FF'}]
+                                                                   stylers: [{hue: '#73C76A'}]
                                                                    }
                                                                    ], {
                                                                   name: 'Trippy'
@@ -86,6 +71,15 @@
                                                                                             
                     geocodeAddress(geocoder, map);
             }
+        
+        /*
+         red : F88985
+         green : 73C76A
+         purple : CFA1FF
+         blue : 9BB5FF
+         yello : FFD97B
+         
+         */
         
         function geocodeAddress(geocoder, resultsMap) {
             var address = "St. Louis, MO";//here
