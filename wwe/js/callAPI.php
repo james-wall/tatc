@@ -31,7 +31,9 @@ $cityCodes = [
 
 ];
 
-$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[rand(0,26)].'/?key=HackTripAdvisor-ade29ff43aed';
+$rand = rand(0,26);
+
+$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=HackTripAdvisor-ade29ff43aed';
 
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -92,6 +94,8 @@ $fakeCity1 = $fakeCities[rand (0 ,11)];
 $fakeCity2 = $fakeCities2[rand (0 ,11)];
 $fakeCity3 = $fakeCities3[rand (0 ,11)];
 
-echo('{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'"}');
-
+$str = '{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'"}';
+//$utf8str = iconv(mb_detect_encoding($str, mb_detect_order(), true), "UTF-8", $str);
+//echo($utf8str);
+echo($str);
 ?>
