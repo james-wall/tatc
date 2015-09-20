@@ -2,6 +2,8 @@ html, body {
 	height: 100%; 
 	padding: 0; 
 	margin: 0; 
+	-webkit-transition: all 2s ease-in-out !important;
+    transition: all 2s ease-in-out !important;
 }
 
 .choices { 
@@ -11,7 +13,7 @@ html, body {
 }
 
 .choices h1 {
-	color: white;
+	color: #333;
 }
 
 #choice_container {
@@ -256,16 +258,20 @@ html, body {
     margin-top: 70vh;
     margin-left: 80vw;
     border: 2px solid #E89A99;
-    background-color: #FFF6BA;
+    background-color: #FFFFFF;
     border-radius: 5px;
     padding: 25px;
     color: #333;
     font-weight: bold;
     font-size: 25px;
+    -webkit-transition: all 0.2s ease-in-out !important;
+    transition: all 0.2s ease-in-out !important;
 }
 #play_game:hover {
 	background-color: #E89A99;
-}
+	-webkit-transition: all 0.2s ease-in-out !important;
+    transition: all 0.2s ease-in-out !important;
+} 
 
 @media (max-width: 769px) {
 	.choices{
@@ -278,7 +284,7 @@ html, body {
 	#question_choice {
 		display: inline-block;
 		height: 40vh;
-		background-color: rgba(234, 178, 153, 1);
+		background-color: #fff;
 	}
 	#question_text_mobile {
 		font-size: 20px;
