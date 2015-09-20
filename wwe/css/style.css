@@ -262,6 +262,7 @@ h1 {
     border: none;
     width: 50vw;
     height: 10vh;
+    color: #E89A99;
     background-color: white;
     border-top: 5px solid #E89A99;
     border-right: 2.5px solid #E89A99;
@@ -271,6 +272,8 @@ h1 {
 	background-color: #E89A99;
 	color: white;
 	cursor: pointer;
+	-webkit-transition: all 0.2s ease-in-out !important;
+    transition: all 0.2s ease-in-out !important;
 }
 #trippyLink {
 	border-right: none;
