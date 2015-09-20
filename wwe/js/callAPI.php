@@ -21,15 +21,14 @@ $cityCodes = [
     "17"=> "5549488",
     "18"=> "3369701",
     "19"=> "7253362",
-
-
-
 ];
-
+ //************** Entirely Random ***************************//
+// $randomAPICall = rand(100000, 9999999);
+// $service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$randomAPICall.'/?key=8B89F4BDB7F64B79A1533D6EA207C3D5';
+//*************** Demo Purposes ******************************//
 $rand = rand(0,19);
-
 $service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=8B89F4BDB7F64B79A1533D6EA207C3D5';
-
+// ****************************************************** //
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $curl_response = curl_exec($curl);
