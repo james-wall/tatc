@@ -85,7 +85,7 @@ $fakeCity1 = $fakeCities[rand (0 ,11)];
 $fakeCity2 = $fakeCities2[rand (0 ,11)];
 $fakeCity3 = $fakeCities3[rand (0 ,11)];
 
-$str = '{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'"}';
+$str = '{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'", "url": "'.$json['web_url'].'"}';
 
 echo($str);
 ?>

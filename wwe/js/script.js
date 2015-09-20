@@ -1,4 +1,5 @@
 var jsonObjReal;
+var placeUrl;
 function main() {
 	$("#question_text").text(" ");
 	$("#question_text_mobile").text(" ");
@@ -7,8 +8,9 @@ function main() {
 		$("#question_text_mobile").text(text);
 	}
 	$.get( "http://172.27.168.90/js/callAPI.php", function(jsonObj) {
+    //$.get( "js/callAPI.php", function(jsonObj) {
 		jsonObjReal = jsonObj;
-
+        placeUrl = jsonObj.url;
 		var randNum = Math.random();
 		if(randNum < .25){
 			$("#choiceOne").text(jsonObj.realCity);
@@ -37,12 +39,10 @@ function main() {
 
 		updateText(jsonObj.comment);
 	}, "json").fail(function(jqXHR, textStatus, errorThrown) {
-		console.log(jqXHR);
+		alert("Error! :/");
+        console.log(jqXHR);
 		console.log(textStatus);
 		console.log(errorThrown);
-		alert(jqXHR);
-		alert(textStatus);
-		alert(errorThrown);
 	});
 }
 
@@ -104,3 +104,12 @@ function newgame() {
     $("#results").css("display", "none");
     $("#game_container").css("display", "initial");
     main(); }
+
+function trippy() {
+    OpenInNewTab(placeUrl);
+}
+
+function OpenInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
