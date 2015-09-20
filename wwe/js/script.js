@@ -8,6 +8,7 @@ function main() {
 	}
 	$.get( "http://172.27.168.90/js/callAPI.php", function(jsonObj) {
 		jsonObjReal = jsonObj;
+		console.log(jsonObjReal);
 		var randNum = Math.random();
 		if(randNum < .25){
 			$("#choiceOne").text(jsonObj.realCity);
@@ -62,32 +63,39 @@ function showResults(oranges) {
     if (oranges == 1) {
         if (jsonObjReal.realCity == $("#choiceOne").text()) {
             console.log("You were correct!");
+            $("#corrected").text("Yep! It was " + jsonObjReal.realCity);
         } else {
             console.log("You were wrong");
+            $("#corrected").text("Nope! It was " + jsonObjReal.realCity);
         } 
     } 
     else if (oranges == 2) {
         if (jsonObjReal.realCity == $("#choiceTwo").text()) {
             console.log("You were correct!");
+            $("#corrected").text("Yep! It was " + jsonObjReal.realCity);
         } else {
             console.log("You were wrong");
+            $("#corrected").text("Nope! It was " + jsonObjReal.realCity);
         } 
     } 
     else if (oranges == 3) {
         if (jsonObjReal.realCity == $("#choiceThree").text()) {
             console.log("You were correct!");
+            $("#corrected").text("Yep! It was " + jsonObjReal.realCity);
         } else {
             console.log("You were wrong");
+            $("#corrected").text("Nope! It was " + jsonObjReal.realCity);
         } 
     } 
     else if (oranges == 4) {
         if (jsonObjReal.realCity == $("#choiceFour").text()) {
             console.log("You were correct!");
+            $("#corrected").text("Yep! It was " + jsonObjReal.realCity);
         } else {
             console.log("You were wrong");
+            $("#corrected").text("Nope! It was " + jsonObjReal.realCity);
         } 
     } 
-    $("#corrected").text("The correct location was: " + jsonObjReal.realCity);
     city = jsonObjReal.realCity;
     initMap();
 }
