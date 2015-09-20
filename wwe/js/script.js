@@ -48,51 +48,51 @@ function main() {
 $( document ).ready(function() { main(); }); 
 
 function startgame() {
-            $("#map").css("display", "none");
-            $("#play_game").css("display", "none");
-            $("#game_container").css("display", "initial");
-            $("#results").css("display", "none");
-            city = jsonObjReal.realCity;
+    $("#map").css("display", "none");
+    $("#play_game").css("display", "none");
+    $("#game_container").css("display", "initial");
+    $("#results").css("display", "none");
+    city = jsonObjReal.realCity;
 
-        }
-        function showResults(oranges) {
-        	$("#game_container").css("display", "none");
-        	$("#map").css("display", "inherit");
-        	$("#results").css("display", "initial");
-            if (oranges == 1) {
-                if (jsonObjReal.realCity == $("#choiceOne").text()) {
-                    console.log("You were correct!");
-                } else {
-                    console.log("You were wrong");
-                } 
-            } 
-            else if (oranges == 2) {
-                if (jsonObjReal.realCity == $("#choiceTwo").text()) {
-                    console.log("You were correct!");
-                } else {
-                    console.log("You were wrong");
-                } 
-            } 
-            else if (oranges == 3) {
-                if (jsonObjReal.realCity == $("#choiceThree").text()) {
-                    console.log("You were correct!");
-                } else {
-                    console.log("You were wrong");
-                } 
-            } 
-            else if (oranges == 4) {
-                if (jsonObjReal.realCity == $("#choiceFour").text()) {
-                    console.log("You were correct!");
-                } else {
-                    console.log("You were wrong");
-                } 
-            } 
-            $("#corrected").text("The correct location was: " + jsonObjReal.realCity);
-            city = jsonObjReal.realCity;
-            initMap();
-        }
-        function newgame() {
-            $("#map").css("display", "none");
-            $("#results").css("display", "none");
-            $("#game_container").css("display", "initial");
-            main(); }
+}
+function showResults(oranges) {
+	$("#game_container").css("display", "none");
+	$("#map").css("display", "inherit");
+	$("#results").css("display", "initial");
+    if (oranges == 1) {
+        if (jsonObjReal.realCity == $("#choiceOne").text()) {
+            console.log("You were correct!");
+        } else {
+            console.log("You were wrong");
+        } 
+    } 
+    else if (oranges == 2) {
+        if (jsonObjReal.realCity == $("#choiceTwo").text()) {
+            console.log("You were correct!");
+        } else {
+            console.log("You were wrong");
+        } 
+    } 
+    else if (oranges == 3) {
+        if (jsonObjReal.realCity == $("#choiceThree").text()) {
+            console.log("You were correct!");
+        } else {
+            console.log("You were wrong");
+        } 
+    } 
+    else if (oranges == 4) {
+        if (jsonObjReal.realCity == $("#choiceFour").text()) {
+            console.log("You were correct!");
+        } else {
+            console.log("You were wrong");
+        } 
+    } 
+    $("#corrected").text("The correct location was: " + jsonObjReal.realCity);
+    city = jsonObjReal.realCity;
+    initMap();
+}
+function newgame() {
+    $("#map").css("display", "none");
+    $("#results").css("display", "none");
+    $("#game_container").css("display", "initial");
+    main(); }

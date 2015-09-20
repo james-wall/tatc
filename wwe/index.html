@@ -7,21 +7,12 @@
     <meta name="description" content="Trippy - The TripAdvisor Game You've Been Waiting For">
     <meta name="author" content="Trippy LLC">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
     <script type="text/javascript" src="js/script.js"></script>
     <script src='js/liftOff.js'></script>
-
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
 </head>
-
 <body>
-
     <div class="preloader">
         <div class="logo-container">
             <img src="img/logo.png">
@@ -33,12 +24,6 @@
             </span>
         </div>
     </div>
-
-
-    <script>
-        
-        //}
-    </script>
     <div id="map_overlay">
         <button type="button" id="play_game" onclick="startgame()">Play Game</button>
     </div>
@@ -58,43 +43,32 @@
 
                 </div>
             </div>
-
             <div class="choices" id="question_choice">
                 <h1 id="question_text_mobile"></h1>
             </div>
-
             <div class="choices" onclick="showResults(1)" id="choice_1">
                 <h1 id="choiceOne"> </h1>
             </div>
-
             <div class="choices" onclick="showResults(2)" id="choice_2">
                 <h1 id="choiceTwo"> </h1>
             </div>
-
             <div class="choices" onclick="showResults(3)" id="choice_3">
                 <h1 id="choiceThree"> </h1>
             </div>
-
             <div class="choices" onclick="showResults(4)" id="choice_4">
                 <h1 id="choiceFour"> </h1>
             </div>
         </div>
     </div>
-
     <div id="results">
-
     	<div id="map_results">
     	</div>
-
     	<div id="results_mounted">
     	<div id="mounted">
             <h1 id="corrected"> The correct location was:  </h1>
             <button type="button" id="new_game" onclick="newgame()">Play Game</button>
     	</div>
     	</div>
-
     </div>
-
 </body>
-
 </html>
