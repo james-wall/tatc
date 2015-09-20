@@ -28,7 +28,7 @@ $cityCodes = [
 
 $rand = rand(0,19);
 
-$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=8351D44691C44D74B1F52E972258860F';
+$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=8B89F4BDB7F64B79A1533D6EA207C3D5';
 
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -89,7 +89,7 @@ $fakeCity1 = $fakeCities[rand (0 ,11)];
 $fakeCity2 = $fakeCities2[rand (0 ,11)];
 $fakeCity3 = $fakeCities3[rand (0 ,11)];
 
-$str = '{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'"}';
+$str = '{ "fakeCity1": "'.$fakeCity1.'", "fakeCity2": "'.$fakeCity2.'", "fakeCity3": "'.$fakeCity3.'", "realCity": "'.$json['address_obj']['city'].', '.$json['address_obj']['country'].'", "comment": "'.$json['reviews'][3]['text'].'", "url": "'.$json['web_url'].'"}';
 
 echo($str);
 ?>
