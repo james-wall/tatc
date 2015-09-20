@@ -1,16 +1,12 @@
 $( document ).ready(function() {
 
 	function updateText(text) {
-		/*if (text.length > 150) {
-			text = text.slice(0, 150) + "...";
-		}*/
 		$("#question_text").text(text);
 		$("#question_text_mobile").text(text);
 	}
 	var jsonObjReal;
 	$.get( "/tatc/wwe/js/callAPI.php", function(jsonObj) {
 		jsonObjReal = jsonObj;
-		//var jsonObj = JSON.parse(json);
 		var randNum = Math.random();
 
 		console.log(randNum);
