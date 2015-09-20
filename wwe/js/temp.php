@@ -1,3 +1,5 @@
+<h1>Made it!</h1>
+
 <?php
 
 $cityCodes = [
@@ -24,7 +26,7 @@ $cityCodes = [
 
 $rand = rand(0,18);
 
-$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=8351D44691C44D74B1F52E972258860F';
+$service_url = 'http://api.tripadvisor.com/api/partner/2.0/location/'.$cityCodes[$rand].'/?key=HackTripAdvisor-ade29ff43aed';
 
 $curl = curl_init($service_url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -35,9 +37,10 @@ if ($curl_response === false) {
     curl_close($curl);
     die('error occured during curl exec. Additional info: ' . var_export($info));
 }
-
+echo($curl_response);
 $json = json_decode($curl_response, true);
-
+echo("<h2>JSON</h2>");
+echo($json);
 $fakeCities = [
     "0" => "Boston, United States",
     "1" => "Shanghai, China",
