@@ -43,7 +43,10 @@
             $("#map").css("display", "none");
             $("#play_game").css("display", "none");
             $("#game_container").css("display", "initial");
-
+        }
+        function showResults() {
+        	$("#game_container").css("display", "none");
+        	$("#results").css("display", "initial");
         }
     </script>
     <div id="map_overlay">
@@ -69,16 +72,16 @@
                 <h1 id="question_text_mobile"></h1>
             </div>
 
-            <div class="choices" id="choice_1">
+            <div class="choices" onclick="showResults()" id="choice_1">
             </div>
 
-            <div class="choices" id="choice_2">
+            <div class="choices" onclick="showResults()" id="choice_2">
             </div>
 
-            <div class="choices" id="choice_3">
+            <div class="choices" onclick="showResults()" id="choice_3">
             </div>
 
-            <div class="choices" id="choice_4">
+            <div class="choices" onclick="showResults()" id="choice_4">
             </div>
         </div>
     </div>

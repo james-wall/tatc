@@ -244,10 +244,14 @@ html, body {
 
 #map {
 	height: 100vh;
+	-webkit-transition: all 0.2s ease-in-out !important;
+    transition: all 0.2s ease-in-out !important;
 }
 
 #game_container {
 	display: none;
+	-webkit-transition: all 0.2s ease-in-out !important;
+    transition: all 0.2s ease-in-out !important;
 }
 
 #play_game {
@@ -261,7 +265,7 @@ html, body {
     background-color: #FFFFFF;
     border-radius: 5px;
     padding: 25px;
-    color: #333;
+    color: #E89A99;
     font-weight: bold;
     font-size: 25px;
     -webkit-transition: all 0.2s ease-in-out !important;
@@ -269,6 +273,8 @@ html, body {
 }
 #play_game:hover {
 	background-color: #E89A99;
+	border-color: white;
+	color: white;
 	-webkit-transition: all 0.2s ease-in-out !important;
     transition: all 0.2s ease-in-out !important;
 } 
@@ -284,7 +290,7 @@ html, body {
 	position: absolute;
 	z-index: 2;
 	bottom: 0;
-	height: 10vh;
+	height: 30vh;
 	width: 100vw;
 	background-color: white;
 }
