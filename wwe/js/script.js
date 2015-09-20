@@ -1,44 +1,39 @@
-$( document ).ready(function() {
-
+var jsonObjReal;
+function main() {
+	$("#question_text").text(" ");
+	$("#question_text_mobile").text(" ");
 	function updateText(text) {
-		/*if (text.length > 150) {
-			text = text.slice(0, 150) + "...";
-		}*/
 		$("#question_text").text(text);
 		$("#question_text_mobile").text(text);
 	}
-	var jsonObjReal;
 	$.get( "http://172.27.168.90/js/callAPI.php", function(jsonObj) {
 		jsonObjReal = jsonObj;
-		//var jsonObj = JSON.parse(json);
 		var randNum = Math.random();
-
-		console.log(randNum);
-
 		if(randNum < .25){
-			$("<h1 id = 'choiceOne'>" + jsonObj.realCity + "</h1>").appendTo("#choice_1");
-			$("<h1 id = 'choiceTwo'>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
-			$("<h1 id = 'choiceThree'>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
-			$("<h1 id = 'choiceFour'>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_4");
+			$("#choiceOne").text(jsonObj.realCity);
+			$("#choiceTwo").text(jsonObj.fakeCity2);
+			$("#choiceThree").text(jsonObj.fakeCity3);
+			$("#choiceFour").text(jsonObj.fakeCity1);
 		}
 		else if(randNum >= .25 && randNum < .5){
-			$("<h1 id = 'choiceOne'>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
-			$("<h1 id = 'choiceTwo'>" + jsonObj.realCity + "</h1>").appendTo("#choice_2");
-			$("<h1 id = 'choiceThree'>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
-			$("<h1 id = 'choiceFour'>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_4");
+			$("#choiceOne").text(jsonObj.fakeCity1);
+			$("#choiceTwo").text(jsonObj.realCity);
+			$("#choiceThree").text(jsonObj.fakeCity3);
+			$("#choiceFour").text(jsonObj.fakeCity2);
 		}
 		else if(randNum >= .5 && randNum < .75){
-			$("<h1 id = 'choiceOne'>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
-			$("<h1 id = 'choiceTwo'>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
-			$("<h1 id = 'choiceThree'>" + jsonObj.realCity + "</h1>").appendTo("#choice_3");
-			$("<h1 id = 'choiceFour'>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_4");
+			$("#choiceOne").text(jsonObj.fakeCity1);
+			$("#choiceTwo").text(jsonObj.fakeCity2);
+			$("#choiceThree").text(jsonObj.realCity);
+			$("#choiceFour").text(jsonObj.fakeCity3);
 		}
 		else{
-			$("<h1 id = 'choiceOne'>" + jsonObj.fakeCity1 + "</h1>").appendTo("#choice_1");
-			$("<h1 id = 'choiceTwo'>" + jsonObj.fakeCity2 + "</h1>").appendTo("#choice_2");
-			$("<h1 id = 'choiceThree'>" + jsonObj.fakeCity3 + "</h1>").appendTo("#choice_3");
-			$("<h1 id = 'choiceFour'>" + jsonObj.realCity + "</h1>").appendTo("#choice_4");
+			$("#choiceOne").text(jsonObj.fakeCity1);
+			$("#choiceTwo").text(jsonObj.fakeCity2);
+			$("#choiceThree").text(jsonObj.fakeCity3);
+			$("#choiceFour").text(jsonObj.realCity);
 		}
+
 		updateText(jsonObj.comment);
 	}, "json").fail(function(jqXHR, textStatus, errorThrown) {
 		console.log(jqXHR);
@@ -47,51 +42,57 @@ $( document ).ready(function() {
 		alert(jqXHR);
 		alert(textStatus);
 		alert(errorThrown);
-		//alert( "error" );
 	});
+}
 
-	$(document).delegate("#choice_1", "click", function() {
-		console.log(jsonObjReal.realCity);
-		console.log(document.getElementById('choiceOne').innerHTML);
-		if(jsonObjReal.realCity === document.getElementById('choiceOne').innerHTML){
-			alert("you did it!");
-		}
-		else{
-			alert("awwww... :/");
-		}
-	});
-	$(document).delegate("#choice_2", "click", function() {
-		console.log(jsonObjReal.realCity);
-		console.log(document.getElementById('choiceTwo').innerHTML);
-		if(jsonObjReal.realCity === document.getElementById('choiceTwo').innerHTML){
-			alert("you did it!");
-		}
-		else{
-			alert("awwww... :/");
-		}
-	});
-	$(document).delegate("#choice_3", "click", function() {
-		console.log(jsonObjReal.realCity);
-		console.log(document.getElementById('choiceThree').innerHTML);
-		if(jsonObjReal.realCity === document.getElementById('choiceThree').innerHTML){
-			alert("you did it!");
-		}
-		else{
-			alert("awwww... :/");
-		}
-	});
-	$(document).delegate("#choice_4", "click", function() {
-		console.log(jsonObjReal.realCity);
-		console.log(document.getElementById('choiceFour').innerHTML);
-		if(jsonObjReal.realCity === document.getElementById('choiceFour').innerHTML){
-			alert("you did it!");
-		}
-		else{
-			alert("awwww... :/");
-		}
-	});
+$( document ).ready(function() { main(); }); 
 
-	//updateText("Despite staying on the top floor, there was no way you could see the Gateway Arch. Needless to say there were quite a few buildings in the way. Great serive though.");
+function startgame() {
+            $("#map").css("display", "none");
+            $("#play_game").css("display", "none");
+            $("#game_container").css("display", "initial");
+            $("#results").css("display", "none");
+            city = jsonObjReal.realCity;
 
-
-});
+        }
+        function showResults(oranges) {
+        	$("#game_container").css("display", "none");
+        	$("#map").css("display", "inherit");
+        	$("#results").css("display", "initial");
+            if (oranges == 1) {
+                if (jsonObjReal.realCity == $("#choiceOne").text()) {
+                    console.log("You were correct!");
+                } else {
+                    console.log("You were wrong");
+                } 
+            } 
+            else if (oranges == 2) {
+                if (jsonObjReal.realCity == $("#choiceTwo").text()) {
+                    console.log("You were correct!");
+                } else {
+                    console.log("You were wrong");
+                } 
+            } 
+            else if (oranges == 3) {
+                if (jsonObjReal.realCity == $("#choiceThree").text()) {
+                    console.log("You were correct!");
+                } else {
+                    console.log("You were wrong");
+                } 
+            } 
+            else if (oranges == 4) {
+                if (jsonObjReal.realCity == $("#choiceFour").text()) {
+                    console.log("You were correct!");
+                } else {
+                    console.log("You were wrong");
+                } 
+            } 
+            $("#corrected").text("The correct location was: " + jsonObjReal.realCity);
+            city = jsonObjReal.realCity;
+            initMap();
+        }
+        function newgame() {
+            $("#map").css("display", "none");
+            $("#results").css("display", "none");
+            $("#game_container").css("display", "initial");
+            main(); }

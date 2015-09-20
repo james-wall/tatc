@@ -18,9 +18,6 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet"> -->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet"> -->
-
 </head>
 
 <body>
@@ -39,22 +36,16 @@
 
 
     <script>
-        function startgame() {
-            $("#map").css("display", "none");
-            $("#play_game").css("display", "none");
-            $("#game_container").css("display", "initial");
-        }
-        function showResults() {
-        	$("#game_container").css("display", "none");
-        	$("#results").css("display", "initial");
-        }
+        
+        //}
     </script>
     <div id="map_overlay">
         <button type="button" id="play_game" onclick="startgame()">Play Game</button>
     </div>
     <div id="map"></div>
     <script>
-		function initMap(){var e,o=new google.maps.Geocoder,s=new google.maps.StyledMapType([{stylers:[{color:"#E89A99"},{visibility:"simplified"},{gamma:0},{weight:.2}]},{elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{color:"#FFFFFF"}]}],{name:"Trippy"}),t="custom_style";e=new google.maps.Map(document.getElementById("map"),{zoom:4,center:{lat:0,lng:0},disableDefaultUI:!0,mapTypeControlOptions:{mapTypeIds:[google.maps.MapTypeId.ROADMAP,t]}}),e.mapTypes.set(t,s),e.setMapTypeId(t),geocodeAddress(o,e)}function geocodeAddress(e,o){var s="St. Louis, MO";e.geocode({address:s},function(e,s){s===google.maps.GeocoderStatus.OK?(o.setCenter(e[0].geometry.location),new google.maps.Marker({map:o,icon:'../Marker3.png',position:e[0].geometry.location})):alert("Geocode was not successful for the following reason: "+s)})}
+        var city = "St. Louis, Missouri";
+		function initMap(){var e,o=new google.maps.Geocoder,s=new google.maps.StyledMapType([{stylers:[{color:"#E89A99"},{visibility:"simplified"},{gamma:0},{weight:.2}]},{elementType:"labels",stylers:[{visibility:"off"}]},{featureType:"water",stylers:[{color:"#FFFFFF"}]}],{name:"Trippy"}),t="custom_style";e=new google.maps.Map(document.getElementById("map"),{zoom:4,center:{lat:0,lng:0},disableDefaultUI:!0,mapTypeControlOptions:{mapTypeIds:[google.maps.MapTypeId.ROADMAP,t]}}),e.mapTypes.set(t,s),e.setMapTypeId(t),geocodeAddress(o,e)}function geocodeAddress(e,o){var s=city;e.geocode({address:s},function(e,s){s===google.maps.GeocoderStatus.OK?(o.setCenter(e[0].geometry.location),new google.maps.Marker({map:o,icon:'../Marker3.png',position:e[0].geometry.location})):alert("Geocode was not successful for the following reason: "+s)})}
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=geometry&callback=initMap" async defer></script>
 
@@ -72,16 +63,20 @@
                 <h1 id="question_text_mobile"></h1>
             </div>
 
-            <div class="choices" onclick="showResults()" id="choice_1">
+            <div class="choices" onclick="showResults(1)" id="choice_1">
+                <h1 id="choiceOne"> </h1>
             </div>
 
-            <div class="choices" onclick="showResults()" id="choice_2">
+            <div class="choices" onclick="showResults(2)" id="choice_2">
+                <h1 id="choiceTwo"> </h1>
             </div>
 
-            <div class="choices" onclick="showResults()" id="choice_3">
+            <div class="choices" onclick="showResults(3)" id="choice_3">
+                <h1 id="choiceThree"> </h1>
             </div>
 
-            <div class="choices" onclick="showResults()" id="choice_4">
+            <div class="choices" onclick="showResults(4)" id="choice_4">
+                <h1 id="choiceFour"> </h1>
             </div>
         </div>
     </div>
@@ -93,7 +88,8 @@
 
     	<div id="results_mounted">
     	<div id="mounted">
-    		<h1 id="city_mounted"> </h1> <h1 id="status"> </h1>
+            <h1 id="corrected"> The correct location was:  </h1>
+            <button type="button" id="new_game" onclick="newgame()">Play Game</button>
     	</div>
     	</div>
 
