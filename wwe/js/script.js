@@ -5,7 +5,7 @@ $( document ).ready(function() {
 		$("#question_text_mobile").text(text);
 	}
 	var jsonObjReal;
-	$.get( "/tatc/wwe/js/callAPI.php", function(jsonObj) {
+	$.get( "172.27.168.90/js/callAPI.php", function(jsonObj) {
 		jsonObjReal = jsonObj;
 		var randNum = Math.random();
 
