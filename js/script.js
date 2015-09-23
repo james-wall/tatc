@@ -7,7 +7,7 @@ function main() {
 		$("#question_text").text(text);
 		$("#question_text_mobile").text(text);
 	}
-	$.get( "http://172.27.168.90/js/callAPI.php", function(jsonObj) {
+	$.get( "http://murmuring-depths-2165.herokuapp.com/", function(jsonObj) {
     //$.get( "js/callAPI.php", function(jsonObj) {
 		jsonObjReal = jsonObj;
         placeUrl = jsonObj.url;
